@@ -1,0 +1,65 @@
+<ion-content>
+  <div
+    style="color: #fff;background: linear-gradient(90deg, #0090a3 10%, rgb(57, 144, 224) 100%); margin-bottom: 0;height: 55px;">
+    <!-- HEADER -->
+    <ion-icon slot="start" name="close" class="icon-nav"
+      style=" position: absolute;z-index: 10; padding: 20px;padding-top: 15px;" (click)="closeModal()">
+    </ion-icon>
+    <ion-item style="--background: transparent;margin-bottom: 0;" lines="none">
+      <ion-title class="title">Custodios</ion-title>
+    </ion-item>
+  </div>
+  <div style="padding: 0 25px;">
+    <p style="font-size: 18px;font-weight: 600;text-align: left;color: #6e6e6e;margin-bottom: 5px;">Comparta con
+      custodios
+    </p>
+    <p style="font-size: 11px;font-weight: 600;text-align: left;color: #999999;margin-top: 0;">Comparta a cada de uno de
+      los custodios el código de encriptacion que les corresponda o ingrese sus llaves publicas.</p>
+  </div>
+
+<!--   <ion-card button="true"
+    style="--background: white;border-radius: 15px;margin-top: 10px ;padding: 15px 30px;box-shadow: var(--shadow-black-100);"
+    class="recibo">
+
+    <div class="row_container recibo" style="line-height: 0.8">
+      <div style="width:90%;">
+        <p style="font-weight: 520;font-size: 16px;margin: 7px auto;">Custodio #1</p>
+        <p style="font-weight: 500;font-size: 11px;">Usted es el primer custodio</p>
+        <p style="font-weight: 500;font-size: 11px;">Guarde su código de forma segura
+        </p>
+      </div>
+
+      <div style="width: 10%;text-align: right;align-self: center;">
+        <ion-icon name="save" style="color: #0090a3;font-size: 25px;"></ion-icon>
+      </div>
+    </div>
+  </ion-card> -->
+
+
+<ng-container *ngFor="let item of listCustodios; index as i">
+
+  <ion-card button="true" (click)="verQR(item,i)"
+    style="--background: white;border-radius: 15px;margin-top: 10px ;padding: 15px 30px;box-shadow: var(--shadow-black-100);"
+    class="recibo">
+
+    <div class="row_container recibo" style="line-height: 0.8">
+      <div style="width:90%;">
+        <p style="font-weight: 520;font-size: 16px;margin: 7px auto;">Custodio #{{i+1}}</p>
+        <p style="font-weight: 500;font-size: 11px;">Compartelo con el custodio correcto</p>
+        <p style="font-weight: 500;font-size: 11px;">Puedes ingresar su <span style="color: var(--main-color);">llave
+            pública</span>
+        </p>
+      </div>
+
+      <div style="width: 10%;text-align: right;align-self: center;">
+        <ion-icon name="share-social" style="color: #0090a3;font-size: 25px;"></ion-icon>
+      </div>
+    </div>
+  </ion-card>
+
+
+</ng-container>
+
+
+
+</ion-content>

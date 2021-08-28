@@ -1,0 +1,275 @@
+<ion-header class="ion-no-border">
+
+  <ion-toolbar [style.--background]="'transparent'">
+    <ion-buttons slot="end" style="position: absolute;right: 0;z-index: 20;" (click)="closeModal()">
+      <ion-icon name="close-outline" style="font-size: 30px; color: #929292;padding: 15px;"></ion-icon>
+    </ion-buttons>
+    <p style="text-align: center;color: #929292;font-size: 16px;margin: 0;">
+      NFT DETAIL</p>
+  </ion-toolbar>
+
+</ion-header>
+
+<ion-content>
+
+  <div style="
+    
+    padding: 20px;
+    padding-top: 0px;">
+    <div style="text-align: center;background: #d3e8ff;
+    border-radius: 10px;
+    padding-bottom: 25px;" #container>
+      <div style="position: relative;">
+        <img [src]="'https://ipfs.io/ipfs/'+data.ipfsicon" alt="" style="max-width: 80%;
+      max-width: 80%;
+    max-height: 80%;
+    border: 0;
+    margin: auto;
+    margin-bottom: -15px;
+    margin-top: 15px;">
+   <!--      <img [src]="'../../../assets/images/'+(data.chainid=='648529'?'logo-lacchain-footer.png':'binance-Logo.png')"
+          alt="" style="position: absolute;
+    right: 20px;
+    bottom: -5px;
+    width: 100px;"> -->
+
+
+<img [src]="'../../../assets/images/nodes/'+ (data.chainid)+'.png'"
+          alt="" style="position: absolute;
+    right: 20px;
+    bottom: -5px;
+    max-height: 40px;">
+
+        <div style="
+position: absolute;
+top: 30px;
+right: 20px;" *ngIf="data.role=='creator'">
+          <ion-badge class="builder"> {{data.role}}
+          </ion-badge>
+          <p style="  margin: 0;
+          font-size: 12px;
+          margin-top: -5px;
+          color: #7b7b7b;" [ngClass]="data.status=='burned'?'burned':null" >{{data.balance}} of {{data.amount}}</p>
+        </div>
+
+        <div *ngIf="data.status=='burned'" style="position: absolute;
+        top: 23px;
+        left: 20px;">
+          <ion-icon name="flame-outline" style="font-size: 28px;color: rgb(221 122 51);"></ion-icon>
+          <p class="text-badge" style="color:rgb(221 122 51);font-size: 14px;">Burned</p>
+        </div>
+      </div>
+
+
+
+    </div>
+
+    <p style="
+        margin: 0;
+    font-size: 25px;
+    color: rgb(99 99 99);
+    letter-spacing: 2px;
+    text-align: left;
+    margin-top: 10px;
+    font-weight: 600;
+    margin-left: 10px;">{{data.name}}</p>
+    <p style="
+         margin: 0;
+    font-size: 13px;
+    color: rgb(72 72 72 / 80%);
+    letter-spacing: 1px;
+    text-align: left;
+    font-weight: 600;
+    margin-left: 10px;">{{data.description}}</p>
+    <!--     <p style="
+             margin: 0;
+    font-size: 14px;
+    color: rgb(140 140 140);
+    text-align: left;
+    margin-left: 10px;">Tx {{(data.tx | slice:0:12)+' ...
+      '+(data.tx | slice:56:66)}}</p> -->
+
+    <div *ngIf="data.role!='creator'"  style="text-align: center;
+    margin-bottom: 20px;
+    margin-top: 25px;">
+     <!--  <a href="javascript:void(0)" (click)="transfer()" class="btn btn-2"
+        style="position: relative;margin-right: 3px;padding-top: 4px;">
+        <ion-icon name="arrow-redo-outline" style="font-size: 20px;transform: translateY(5px);margin-right: 3px;"></ion-icon>
+        TRANSFER
+      </a> -->
+
+     <!--  <a href="javascript:void(0)"  (click)="compartir()" class="btn btn-3"
+       style="position: relative;padding-top: 4px;margin-left: 3px;" >
+        <ion-icon name="share-social" style="font-size: 20px;transform: translateY(5px);margin-right: 3px;"></ion-icon>
+        SHARE
+      </a> -->
+      <a href="javascript:void(0)"  (click)="compartir()" class="btn btn-3"
+      style="position: relative;padding-top: 4px;margin-left: 3px;
+      padding: 10px 46px;padding-top: 4px;" >
+       <ion-icon name="share-social" style="font-size: 20px;transform: translateY(5px);margin-right: 3px;"></ion-icon>
+       SHARE
+     </a>
+    </div>
+
+
+    <div *ngIf="data.role=='creator' && data.status!='burned'"  style="text-align: center;
+    margin-bottom: 20px;
+    margin-top: 25px;">
+    <!--   <a href="javascript:void(0)" class="btn btn-3"(click)="send()"
+        style="position: relative;margin-right: 3px;padding-top: 4px;" >
+        <ion-icon name="send-outline" style="font-size: 20px;transform: translateY(5px);margin-right: 3px;"></ion-icon>
+        SEND
+      </a> -->
+      
+     <!--  <a [href]="urlTx" target="_blank" class="btn btn-3"
+      style="position: relative;margin-right: 3px;padding-top: 4px;">
+      <ion-icon name="pause-outline" style="font-size: 20px;transform: translateY(5px);margin-right: 3px;"></ion-icon>
+      PAUSE
+    </a> -->
+
+      <a href="javascript:void(0)"  (click)="burn()" class="btn btn-2" 
+      style="position: relative;padding-top: 4px;margin-left: 3px;margin-top: 5px;" >
+        <ion-icon name="flame-outline" style="font-size: 20px;transform: translateY(5px);margin-right: 3px;"></ion-icon>
+        BURN
+      </a>
+    </div>
+
+    <div *ngIf=" data.status=='burned'"  style="text-align: center;
+    margin-bottom: 20px;
+    margin-top: 25px;">
+ 
+      <a href="javascript:void(0)" class="btn btn-2" 
+      style="position: relative;padding-top: 4px;margin-left: 3px;margin-top: 5px;" >
+        <ion-icon name="flame-outline" style="font-size: 20px;transform: translateY(5px);margin-right: 3px;"></ion-icon>
+       POAP IS BURNED
+      </a>
+    </div>
+
+
+
+    <ion-segment (ionChange)="segmentChanged($event)" [value]="segSelect"
+      style=" border-top: 1px solid rgb(241, 241, 241);border-bottom: 1px solid rgb(241, 241, 241);margin-top: 15px;"
+      color="primary">
+      <ion-segment-button select value="aut">
+        <ion-tab-button tab="tab1" class="tab-button">
+          <ion-label class="text-seg" [ngClass]="segSelect=='aut'?'active' :'desabled'">
+            Author
+          </ion-label>
+        </ion-tab-button>
+      </ion-segment-button>
+
+      <ion-segment-button value="ipfs">
+        <ion-tab-button tab="tab3" class="tab-button">
+          <ion-label class="text-seg" [ngClass]="segSelect=='ipfs'?'active' :'desabled'">
+            IPFS
+          </ion-label>
+        </ion-tab-button>
+      </ion-segment-button>
+
+      <ion-segment-button value="tok">
+        <ion-tab-button tab="tab3" class="tab-button">
+          <ion-label class="text-seg" [ngClass]="segSelect=='tok'?'active' :'desabled'">
+            Token
+          </ion-label>
+        </ion-tab-button>
+      </ion-segment-button>
+
+    </ion-segment>
+
+
+
+    <div  style=" padding: 0 15px;  padding-bottom: 30px;">
+
+      <ng-container *ngIf="segSelect=='aut'">
+        <p style="font-weight: 600;
+  color: #4c4c4c;margin-bottom: 5px;margin-top: 20px;">Creator</p>
+        <div class="row">
+          <div class="col-3 pr-0" style="font-size: 13px;" *ngIf="metadata.creator">Address</div>
+          <div class="col-9" style="font-size: 13px;" *ngIf="metadata.creator"><span 
+              style="color:var(--main-color);    text-decoration: underline;">{{metadata.alias?('('+metadata.alias+')'):''}}
+              {{metadata.creator | maxText:(metadata.alias?15:20) }}</span></div>
+<!-- 
+              <div class="col-9" style="font-size: 13px;" *ngIf="metadata.creator"><a [href]="urlAddress" target="_blank"
+                style="color:var(--main-color);    text-decoration: underline;">{{metadata.alias?('('+metadata.alias+')'):''}}
+                {{metadata.creator | maxText:(metadata.alias?15:20) }}</a></div> -->
+
+          <div class="col-3 pr-0 mt-2" style="font-size: 13px;" *ngIf="metadata.url">Web</div>
+          <div class="col-9 mt-2" style="font-size: 13px;" *ngIf="metadata.url"><a [href]="metadata.url" target="_blank"
+              style="color:var(--main-color);    text-decoration: underline;"> {{metadata.url }}</a> </div>
+
+          <div class="col-3 pr-0 mt-2" style="font-size: 13px;">From </div>
+          <div class="col-9 mt-2" style="font-size: 11px;color: grey;">{{data.timestamp}}</div>
+
+          <div class="col-3 pr-0 mt-2" style="font-size: 13px;">To </div>
+          <div class="col-9 mt-2" style="font-size: 11px;color: grey;">{{data.timestamp_to}} </div>
+
+        </div>
+      </ng-container>
+
+      <ng-container *ngIf="segSelect=='ipfs'">
+        <p style="font-weight: 600;
+  color: #4c4c4c;margin-bottom: 5px;margin-top: 20px;">Storage (NFT art & metada)</p>
+        <p style="    font-size: 12px;
+  color: #6d6d6d;">The POAP cannot be modified because it is registered in an interplanetary database known as IPFS
+        </p>
+        <div class="row">
+          <div class="col-3 pr-0 mt-1" style="font-size: 13px;">Metadata </div>
+          <div class="col-9" style="font-size: 13px;"><a [href]="'https://ipfs.io/ipfs/'+data.ipfsmetadata"
+              target="_blank" style="color: var(--main-color) ;text-decoration: underline;"> {{data.ipfsmetadata |
+              maxText:20 }}</a></div>
+
+          <div class="col-3 pr-0 mt-2" style="font-size: 13px;">Art </div>
+          <div class="col-9 mt-2" style="font-size: 13px;"><a [href]="'https://ipfs.io/ipfs/'+data.ipfsicon"
+              target="_blank" style="color: var(--main-color) ;text-decoration: underline;"> {{data.ipfsicon |
+              maxText:20
+              }}</a> </div>
+        </div>
+      </ng-container>
+
+      <ng-container *ngIf="segSelect=='tok'">
+
+        <p style="font-weight: 600;
+  color: #4c4c4c;margin-bottom: 5px;margin-top: 20px;">Blockchain</p>
+        <p style="    font-size: 12px;
+  color: #6d6d6d;">This token has been created on the following Blockchain network</p>
+        <div class="row">
+
+          <div class="col-3 pr-0 mt-2" style="font-size: 13px;">Token </div>
+          <div class="col-9 mt-2" style="font-size: 13px;"><a [href]="urltoken" target="_blank"
+              style="text-decoration: underline;">
+              <ion-badge class="builder" style="    padding: 6px 10px;"> ERC 721
+              </ion-badge>
+            </a></div>
+          <div class="col-3 pr-0 mt-2" style="font-size: 13px;">Network </div>
+          <div class="col-9 mt-2" style="font-size: 13px;"> {{data.chainid=='648529'?'Lacchain':'Binance Smart Chain' }}
+          </div>
+
+          <div class="col-3 pr-0 mt-2" style="font-size: 13px;">ChainId </div>
+          <div class="col-9 mt-2" style="font-size: 13px;"> {{data.chainid==97?(data.chainid+' (Testnet)'):
+            data.chainid}}
+          </div>
+
+
+          <div class="col-3 pr-0 mt-2" style="font-size: 13px;">Contract </div>
+          <div class="col-9 mt-2" style="font-size: 13px;"><a [href]="urlContract" target="_blank"
+              style="color: var(--main-color) ;text-decoration: underline;">{{data.contract }} </a></div>
+
+
+          <div class="col-3 pr-0 mt-2" style="font-size: 13px;">Hash TX </div>
+          <div class="col-9 mt-2" style="font-size: 13px;"><a [href]="urlTx" target="_blank"
+              style="color: var(--main-color) ;text-decoration: underline;">{{data.tx }}</a></div>
+        </div>
+      </ng-container>
+
+    </div>
+
+    <!-- <p style="margin: 10px 10px;font-size: 18px;color: #686868;font-weight: 600;">NFTs Bio </p>
+    <p style="margin: 5px 10px;font-size: 12px;color: #acacac;">Lorem ipsum dolor sit amet, consectetur adipiscing
+      elit. Vestibulum eleifend dolor id laoreet tempor. Aliquam
+      libero turpis, tristique euismod varius vel, bibendum id ex.
+      felis hendrerit eu.</p> -->
+  </div>
+
+
+
+</ion-content>

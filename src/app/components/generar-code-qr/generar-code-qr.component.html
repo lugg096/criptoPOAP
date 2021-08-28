@@ -1,0 +1,65 @@
+<!-- <div #container  style="background: blueviolet;">
+  <qrcode [qrdata]="codeQR" [width]="250" [margin]="1"></qrcode>
+</div> -->
+
+<div class="contetInicio" style="--padding-bottom: 50px;">
+
+  <div style="--color: var(--main-color);margin-bottom: 0;">
+    <!-- HEADER -->
+    <ion-icon slot="start" name="arrow-back" class="icon-nav-arrow "
+      style="color: var(--main-color); border-radius: 100%;position: absolute;z-index: 10;" (click)="closeModal()">
+    </ion-icon>
+    <ion-item style="--background: transparent;margin-bottom: 0;" lines="none">
+      <ion-title class="title" style="color: var(--main-color);">{{title!=''?title:'QR'}}</ion-title>
+    </ion-item>
+  </div>
+
+
+  <!--   <div style="border-radius: 10px;box-shadow: var(--shadow-black-100);width: 90%;margin: auto;text-align: center;background: var(--secondary-color);padding: 20px 10px;">
+ -->
+  <div  
+    style="border-radius: 10px;box-shadow: var(--shadow-black-300);width: 90%;margin: auto; margin-top:18px;text-align: center;padding-top: 5px; padding-bottom: 15px; background: var(--main-color)">
+
+    <!--     <div style="text-align: center;margin-top: 5px;">
+      <img src="../../../assets/images/LOGO CRIPTOVISION BLANCO.png" style="width: 80%;">
+    </div> -->
+    <P style="font-size: 18px;color:#f7f8fbdc;margin-bottom: 20px;" >{{texto}}aa
+    </P>
+
+    <div >
+      <img src="../../../assets/images/Imagen1.png" style="position: absolute;z-index: -20;">
+    
+      <div #container  >
+      <!--   <div id="container" > -->
+        <qrcode [qrdata]="codeQR" [width]="250" [margin]="1"></qrcode>
+      </div>
+    </div>
+
+    <div id="my-node" style="width: 60px;height: 50px;background: blueviolet;">RUEBAAA</div>
+  
+    
+    <p style="font-size: 11px; padding: 0 40px;color: #f7f8fbdc;">Comparte el código y recuerda que para visualizar la declaración es necesario los códigos en el orden correcto.</p>
+  </div>
+
+
+
+  <div style="display:block;text-align:center;margin-top: 30px;margin-bottom: 30px;">
+    <a class=" btn-main animate-pulse" style="background-color: var(--main-color);"
+    (click)="copyText()">
+    <ion-icon name="documents-outline"
+      style="color: #fff;font-size: 25px;transform: translateY(15px)"> </ion-icon>
+    <p style="color: var(--main-color);min-width: 55px; font-size: 11px;text-align: center;font-weight: 600;position: absolute;transform: translateY(18px);">
+      Copiar</p>
+  </a>
+  <a class=" btn-main"  (click)="compartirDireccion()" >
+    <ion-icon name="share-social"
+      style="color: var(--main-color);font-size: 25px;transform: translateY(15px)"> </ion-icon>
+ <!--    <p style="color: var(--main-color);font-size: 11px;margin-top: 35px;text-align: center;font-weight: 600;">
+      Compartir</p> -->
+
+      <p style="color: var(--main-color);font-size: 11px;text-align: center;font-weight: 600;position: absolute;transform: translateY(18px);">
+        Compartir</p>
+  </a>
+  </div>
+
+</div>

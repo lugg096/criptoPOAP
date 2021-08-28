@@ -1,0 +1,128 @@
+import { Component, ElementRef, Input, NgZone, OnInit, ViewChild } from '@angular/core';
+import { ModalController } from '@ionic/angular';
+import { IonicComponentsService } from 'src/app/services/ionic-components.service';
+import { environment as env } from 'src/environments/environment';
+
+/* Lottie  */
+import { AnimationItem } from 'lottie-web';
+import { AnimationOptions } from 'ngx-lottie';
+import { FormBuilder, FormControl, FormGroup, Validators } from '@angular/forms';
+import { Funciones } from 'src/app/compartido/funciones';
+import { BarcodeScanner } from '@ionic-native/barcode-scanner/ngx';
+
+@Component({
+  selector: 'app-alert-input',
+  templateUrl: './alert-input.component.html',
+  styleUrls: ['./alert-input.component.scss'],
+})
+
+export class AlertInputComponent implements OnInit {
+
+  private animationItem: AnimationItem;
+
+  buttonConfim: string = '';
+  textTitle: string = '';
+  subtitle: string = '';
+  type: string = 'alert';// success | danger | alert
+
+  field: any = {
+    value:'',
+    caption:'',
+    placeholder:'',
+    type:''
+  };
+
+  options: AnimationOptions = {
+    path: '/assets/json/alert.json',
+    loop: true,
+    autoplay: true
+  };
+
+  form: FormGroup;
+
+  ct: any;
+  name_ct: any;
+  address: any;
+
+  constructor(
+    private barcodeScanner: BarcodeScanner,
+    private _fun: Funciones,
+    private ngZone: NgZone,
+    private _modal: ModalController,
+    public _comp: IonicComponentsService,
+    public formBuilder: FormBuilder) {
+
+    this.form = formBuilder.group({
+      valor: ['', Validators.required],
+    });
+
+  }
+
+  ngOnInit() {
+    this.form.controls['valor'].setValue(this.field.value)
+  }
+
+  async scan(field) {
+    this.barcodeScanner.scan({ prompt: "Lee código QR de " + field.caption }).then(async code => {
+      if (code){
+
+        code.text = code.text.replace('ethereum:', '');
+        this.form.controls['valor'].setValue(code.text);
+      } 
+    }).catch(err => {
+      console.log('Error', err);
+    })
+  }
+
+
+  tiggerFields() {
+    Object.keys(this.form.controls).forEach(field => {
+      let _control = this.form.get(field);
+      if (_control instanceof FormControl) _control.markAsTouched({ onlySelf: true });
+      if (_control instanceof FormGroup) {
+        Object.keys(_control.controls).forEach(field_g => {
+          let _control_g = _control.get(field_g);
+          if (_control_g instanceof FormControl) _control_g.markAsTouched({ onlySelf: true });
+        });
+      }
+    });
+  }
+
+  async validateForm() {
+    this.tiggerFields();
+    if (this.form.valid) {
+      /*this.create();*/
+      console.log(this.form.value);
+      this.confirm();
+    }
+  }
+
+  animationCreated(animationItem: AnimationItem): void {
+    this.animationItem = animationItem;
+    setTimeout(() => {
+      this.pause();
+    }, 1500);
+  }
+
+  stop(): void {
+    this.ngZone.runOutsideAngular(() => this.animationItem.stop());
+  }
+
+  play(): void {
+    this.ngZone.runOutsideAngular(() => this.animationItem.play());
+  }
+
+  pause(): void {
+    this.ngZone.runOutsideAngular(() => this.animationItem.pause());
+  }
+
+
+  closeModal() {
+    this._modal.dismiss();
+  }
+
+  confirm() {
+    this._modal.dismiss({ confirm: true, value: this.form.value.valor });
+  }
+
+}

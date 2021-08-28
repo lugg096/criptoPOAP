@@ -1,0 +1,7 @@
+{
+  "name": "Ethernal",
+  "integrations": {
+    "capacitor": {}
+  },
+  "type": "angular"
+}

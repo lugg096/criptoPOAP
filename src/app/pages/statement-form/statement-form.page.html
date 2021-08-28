@@ -1,0 +1,206 @@
+<!-- <ion-content>
+
+
+  <ion-slides #slidesPadre pager="false" [options]="slideOpts" style="height: 100%;">
+
+
+
+    <ion-slide class="ion-no-padding" style="display: inline;">
+      <div>
+
+        <div
+          style="color: #fff;background: linear-gradient(90deg, #822bff 10%, #5c66ec  100%); margin-bottom: 0;height: 55px;">
+ 
+          <ion-icon name="arrow-back" class="icon-nav"
+            style=" position: absolute;z-index: 10; padding: 20px;padding-top: 15px;left: 0;" (click)="goInicio()">
+          </ion-icon>
+          <ion-item style="--background: transparent;margin-bottom: 0;" lines="none">
+            <ion-title class="title">Información</ion-title>
+          </ion-item>
+        </div>
+
+
+
+        <div style="padding: 0 25px;margin-top: 20px;">
+          <p style="font-size: 18px;font-weight: 600;text-align: left;color: #6e6e6e;margin-bottom: 5px;">Información a
+            firmar
+          </p>
+          <p style="font-size: 11px;font-weight: 600;text-align: left;color: #999999;margin-top: 0;">Los siguientes
+            datos seran usados para realizar transacción e insertar información en la blockchain.</p>
+
+          <ion-card button="true"
+            style="--background: white;border-radius: 15px;margin: 0;  margin-top: 20px ;padding: 10px 20px;box-shadow: var(--shadow-black-300);padding-bottom: 5px;">
+
+            <div style="text-align: left;">
+              <p style="--color:#999999;font-size: 12px;margin-bottom: 0px;font-weight: 600;">To</p>
+              <p style="color: #666666;font-size: 12px;margin-top: 0px;">{{dataNFTInfo.to}}</p>
+            </div>
+          </ion-card>
+
+          <ion-card button="true"
+            style="--background: white;border-radius: 15px;margin: 0;  margin-top: 15px ;padding: 10px 20px;box-shadow: var(--shadow-black-300);padding-bottom: 5px">
+
+            <div style="text-align: left;">
+              <p style="--color:#999999;font-size: 12px;margin-bottom: 0px;font-weight: 600;">dataNFT</p>
+              <p style="color: #666666;font-size: 12px;margin-top: 0px;">{{dataNFTInfo.dataNFT.dataNFT}}</p>
+            </div>
+
+          </ion-card>
+
+          <div style="text-align: center;">
+
+            <a href="javascript:void(0)" class=" btn-3" (click)="firmar()"
+              style="position: relative;top: 30px;letter-spacing: 1.5px;">
+              <ion-icon name="create-outline" style="font-size: 20px;transform: translateY(5px);"></ion-icon> FIRMAR
+            </a>
+
+          </div>
+
+
+
+
+        </div>
+      </div>
+
+    </ion-slide>
+
+
+    <ion-slide>
+      <div class=" text-left" style="background: var(--main-color);width: 100%;height: 100%;">
+        <app-pin [dataNFT]="dataNFTSlideValid" (backPage)="backSlidePadre()" (getClave)="getClave($event)"></app-pin>
+      </div>
+    </ion-slide>
+
+  </ion-slides>
+
+
+
+
+
+
+</ion-content> -->
+
+
+<ion-content>
+
+
+  <ion-slides #slidesPadre pager="false" [options]="slideOpts" style="height: 100%;">
+
+
+
+    <ion-slide class="ion-no-padding" style="display: inline;">
+
+
+
+      <ion-header class="ion-no-border">
+
+        <ion-toolbar [style.--background]="'transparent'">
+          <ion-buttons slot="end" style="position: absolute;left: 0;z-index: 20;" (click)="goInicio()">
+            <ion-icon name="arrow-back" style="font-size: 22px; color: #929292;padding: 15px;"></ion-icon>
+          </ion-buttons>
+          <p style="text-align: center;color: #929292;font-size: 16px;margin: 0;">
+            POAP</p>
+        </ion-toolbar>
+
+      </ion-header>
+
+      <div>
+
+        <div style="
+    
+    padding: 20px;
+    padding-top: 0px;">
+          <div style="text-align: center;background: #d3e8ff;
+    border-radius: 10px;
+    padding-bottom: 25px;">
+
+            <div style="position: relative;">
+              <img [src]="dataNFT.image" alt="" style="max-width: 80%;
+  max-width: 80%;
+max-height: 80%;
+border: 0;
+margin: auto;
+margin-bottom: -15px;
+margin-top: 15px;">
+
+              <img [src]="'../../../assets/images/nodes/'+ (metaNFT.chainId)+'.png'" alt="" style="position: absolute;
+        right: 20px;
+        bottom: -5px;
+        max-height: 40px;">
+<!-- 
+<img  alt=""> -->
+
+
+            </div>
+
+          </div>
+
+          <p style="
+        margin: 0;
+    font-size: 25px;
+    color: rgb(99 99 99);
+    letter-spacing: 2px;
+    text-align: left;
+    margin-top: 10px;
+    font-weight: 600;
+    margin-left: 10px;">{{dataNFT.name}}</p>
+          <p style="
+         margin: 0;
+    font-size: 13px;
+    color: rgb(140 140 140);
+    letter-spacing: 1px;
+    text-align: left;
+    margin-left: 10px;">{{dataNFT.description}}</p>
+          <p style="
+             margin: 0;
+    font-size: 14px;
+    color: rgb(140 140 140);
+    text-align: left;
+    margin-top: 10px;
+    margin-left: 10px;font-style: italic;"> <b>Smart Contract</b><br> {{metaNFT.contract}}</p>
+
+          <div style="text-align: center;
+    margin-bottom: 20px;
+    margin-top: 12px;">
+            <!--  <a [href]="'https://explorer.lacchain.net/tx/'+dataNFT.tx" target="_blank" class="btn btn-2"
+        style="position: relative;margin-right: 10px;">LACCHAIN</a>
+ -->
+            <!--    <a href="javascript:void(0)" class="btn btn-3" style="position: relative;" (click)="firmar()"> -->
+            <a href="javascript:void(0)" class="btn btn-3" style="position: relative;" (click)="getPOAP()">
+
+              <!--         <ion-icon name="share-social" style="font-size: 20px;transform: translateY(5px);margin-right: 3px;"></ion-icon> -->
+              GET NOW
+            </a>
+            <!--      <p style="margin: 10px 10px;font-size: 18px;color: #686868;font-weight: 600;text-align: left;">NFTs Bio </p>
+          <p style="margin: 5px 10px;font-size: 12px;color: #acacac;text-align: left;">Lorem ipsum dolor sit amet, consectetur adipiscing
+            elit. Vestibulum eleifend dolor id laoreet tempor. Aliquam
+            libero turpis, tristique euismod varius vel, bibendum id ex.
+            felis hendrerit eu.</p> -->
+          </div>
+
+
+        </div>
+
+
+
+      </div>
+
+
+
+    </ion-slide>
+
+
+    <ion-slide>
+      <div class=" text-left" style="background: var(--main-color);width: 100%;height: 100%;">
+        <app-pin [data]="dataSlideValid" (backPage)="backSlidePadre()" (getClave)="getClave($event)"></app-pin>
+      </div>
+    </ion-slide>
+
+  </ion-slides>
+
+
+
+
+
+
+</ion-content>

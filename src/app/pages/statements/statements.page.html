@@ -1,0 +1,459 @@
+<!-- <ion-content scrollY="false"  style="--padding-bottom: 70px;" class="contetInicio" #content1>
+
+
+
+  <div style="position:absolute;;width: 100%;height: 100%;background:linear-gradient(90deg, #0090a3 10%, rgb(0, 118, 148) 100%);">
+    <div style="width: 30%;position: absolute;height: 100%;" (click)="closeMenu()">
+      <ion-icon name="close" style="color: #F7F8FB ;font-size: 30px; margin: 35px 30px;"></ion-icon>
+    </div>
+    <app-menu [dataUser]="{}" [user]="{}"></app-menu>
+  </div>
+
+  <div class="contenido1" style="position:absolute ;width: 100%;height: 100%;background: #fff;overflow-y: scroll;display: block; margin-bottom: 50%;" #contenido1>
+    <ion-fab vertical="bottom" horizontal="end" slot="fixed" class="ion-margin" style="position: fixed;">
+      <ion-fab-button style="--background:  var(--main-color);--color:#fff;" (click)="scan()">
+        <ion-icon name="add" style="font-size: 23px;"></ion-icon>
+      </ion-fab-button>
+    </ion-fab>
+
+    <div
+      style="color: #fff;background: linear-gradient(90deg, #0090a3 10%, rgb(57, 144, 224) 100%); margin-bottom: 0;height: 55px;">
+ 
+      <ion-icon name="menu" class="icon-nav" (click)="openMenu()"
+        style=" position: absolute;z-index: 10; padding: 20px;padding-top: 15px;right: 0;">
+      </ion-icon>
+      <ion-item style="--background: transparent;margin-bottom: 0;" lines="none">
+        <ion-title class="title">Lacchain</ion-title>
+      </ion-item>
+    </div>
+
+
+
+
+    <ion-card button="true" *ngIf="list.length==0"
+      style="--background: white;border-radius: 15px;margin-top: 10px ;padding: 15px 30px;box-shadow: var(--shadow-black-100);"
+      class="recibo">
+
+      <div class="row_container recibo" style="line-height: 0.8">
+        <div style="width:90%;">
+          <p style="font-weight: 520;font-size: 16px;margin: 7px auto;">Sin registros</p>
+        </div>
+
+      </div>
+    </ion-card>
+
+    <ion-card *ngFor="let item of list" button="true" target="_blank"
+      [href]="'https://explorer.lacchain.net/tx/'+item.tx"
+      style="--background: white;border-radius: 15px;margin-top: 10px ;padding: 15px 30px;box-shadow: var(--shadow-black-100);"
+      class="recibo">
+
+      <div class="row_container recibo" style="line-height: 0.8">
+        <div style="width:90%;">
+          <p style="font-weight: 520;font-size: 16px;margin: 7px auto;">Transaction Hash</p>
+          <p style="font-weight: 500;font-size: 11px;line-height: 1.2">{{item.tx}}</p>
+
+          <p style="font-weight: 500;font-size: 11px;">Fecha de registro <span
+              style="color: var(--main-color);">{{item.date | date :'medium'}}</span>
+          </p>
+
+        </div>
+
+        <div style="width: 10%;text-align: right;align-self: center;">
+          <ion-icon name="globe-outline" style="color: #0090a3;font-size: 22px;"></ion-icon>
+        </div>
+      </div>
+    </ion-card>
+
+  </div>
+</ion-content> -->
+
+
+<ion-content scrollY="true" class="contetInicio" style="padding-bottom: 70px;--background: #f0f4f9" #content1>
+
+
+
+  <div
+    style="position:absolute;;width: 100%;height: 100%;background:linear-gradient(90deg, #822bff 10%, #5c66ec  100%);overflow: hidden;">
+    <div style="width: 30%;position: absolute;height: 100%;" (click)="closeMenu()">
+      <ion-icon name="close" style="color: #F7F8FB ;font-size: 30px; margin: 35px 30px;"></ion-icon>
+    </div>
+    <app-menu [dataUser]="{}" [user]="{}" (cleanData)="cleanData($event)"></app-menu>
+  </div>
+
+  <div class="contenido1"
+    style="position:absolute ;width: 100%;height: 100%;background: #fff;/* overflow-y: scroll;display: block; */ margin-bottom: 50%;"
+    #contenido1>
+
+    <!--   <div style="color: #000;  margin-bottom: 0;height: 55px;">
+
+        <ion-icon slot="start" name="add-circle"
+          style=" font-size: 35px;color: #2ed4c9;position: absolute;z-index: 10; padding: 20px;right: 0;">
+        </ion-icon>
+    
+        <ion-icon slot="start" name="settings-outline" (click)="openMenu()"
+          style=" font-size: 32px;color: #b4b4b4;position: absolute;z-index: 10; padding: 20px;left: 0;">
+        </ion-icon>
+    
+        <ion-item style="--background: transparent;margin-bottom: 0;padding-top: 12px;" lines="none">
+          <ion-title class="title">WALLET</ion-title>
+        </ion-item>
+    
+      </div> -->
+    <div style="    height: 100%;
+    background: #f0f4f9;
+    width: 100%;
+    overflow: auto;
+    margin: 0;
+    overflow-x: hidden;">
+
+      <div style="color: #000;  margin-bottom: 0;height: 55px;position: relative;">
+
+        <ion-icon slot="start" name="options" (click)="openMenu()" style="
+            font-size: 25px;
+    color: #474d5aa6;
+    position: absolute;
+    z-index: 10;
+    padding: 25px;
+    right: 0;">
+        </ion-icon>
+
+        <!--   trasferir token 
+        recibir token  -->
+
+        <!--   <ion-icon slot="start" name="settings-outline"
+          style=" font-size: 32px;color: #b4b4b4;position: absolute;z-index: 10; padding: 20px;left: 0;">
+        </ion-icon> -->
+
+        <!--  <ion-icon slot="start" name="options" style="
+          border-radius: 100%;
+    font-size: 20px;
+    color: #fff;
+    position: absolute;
+    z-index: 10;
+    padding: 8px;
+    right: 0;
+    background: #2ed4c9;
+    margin: 18px;">
+        </ion-icon> -->
+
+
+        <ion-item style="--background: transparent;margin-bottom: 0;padding-top: 12px;" lines="none">
+          <ion-title style=" 
+            text-align: center;
+    color: #272d3cfc;
+    font-size: 14px;
+    font-weight: 700;
+    letter-spacing: 1px;">CriptoPOAP</ion-title>
+        </ion-item>
+
+
+        <div style="padding: 25px;padding-bottom: 0;padding-top: 15px;">
+          <div>
+            <p style="margin: 0;
+              font-size: 10px;
+              color: rgb(82 82 82);
+              letter-spacing: 2px;">BALANCE</p>
+            <div style="margin: 0;
+              font-size: 26px;
+              color: #132346;
+              letter-spacing: 1px;
+              position: relative;
+              font-weight: 600;">{{list_main.length}} POAPs
+
+
+              <div style="position: absolute;position: absolute;
+              right: -18px;
+              top: -13px;">
+                <div class="search" style="transform: scale(0.75);">
+                  <!--    <input type="text" placeholder="search" /> -->
+                  <input type="text" [ngModel]="nameFilter" (ngModelChange)="changeInput($event,0,'input')"
+                    placeholder="search">
+
+                  <div class="symbol">
+                    <svg class="cloud">
+                      <use xlink:href="#cloud" />
+                    </svg>
+                    <svg class="lens">
+                      <use xlink:href="#lens" />
+                    </svg>
+                  </div>
+                </div>
+                <svg xmlns="http://www.w3.org/2000/svg" style="display: none;">
+                  <symbol xmlns="http://www.w3.org/2000/svg" viewBox="0 0 35 35" id="cloud">
+                    <path d="M31.714,25.543c3.335-2.17,4.27-6.612,2.084-9.922c-1.247-1.884-3.31-3.077-5.575-3.223h-0.021
+    C27.148,6.68,21.624,2.89,15.862,3.931c-3.308,0.597-6.134,2.715-7.618,5.708c-4.763,0.2-8.46,4.194-8.257,8.919
+    c0.202,4.726,4.227,8.392,8.991,8.192h4.873h13.934C27.784,26.751,30.252,26.54,31.714,25.543z" />
+                  </symbol>
+                  <symbol xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16" id="lens">
+                    <path d="M15.656,13.692l-3.257-3.229c2.087-3.079,1.261-7.252-1.845-9.321c-3.106-2.068-7.315-1.25-9.402,1.83
+    s-1.261,7.252,1.845,9.32c1.123,0.748,2.446,1.146,3.799,1.142c1.273-0.016,2.515-0.39,3.583-1.076l3.257,3.229
+    c0.531,0.541,1.404,0.553,1.95,0.025c0.009-0.008,0.018-0.017,0.026-0.025C16.112,15.059,16.131,14.242,15.656,13.692z M2.845,6.631
+    c0.023-2.188,1.832-3.942,4.039-3.918c2.206,0.024,3.976,1.816,3.951,4.004c-0.023,2.171-1.805,3.918-3.995,3.918
+    C4.622,10.623,2.833,8.831,2.845,6.631L2.845,6.631z" />
+                  </symbol>
+                </svg>
+              </div>
+
+              <!--   <p style="
+              color: #474d5aa6;
+position: absolute;
+right: 20px;
+font-size: 20px;
+top: 7px;">
+                <ion-icon name="reload-outline" (click)="refresh()" style="    transform: translateY(5px);"></ion-icon>
+                <span style="font-size: 11px;"> Refresh</span>
+              </p> -->
+
+              <!--  <ion-icon name="search" style="
+              color: #474d5aa6;
+    position: absolute;
+    right: 10px;
+    font-size: 20px;
+    top: 7px;
+              "></ion-icon> -->
+
+            </div>
+
+          </div>
+
+
+
+
+
+          <!--   <p style="
+                  margin-top: 20px;
+    position: relative;
+    background: #ffffff;
+    padding: 11px;
+    color: #474d5aa6;
+    font-size: 12px;
+    font-weight: 600;
+    border-radius: 8px;">
+            Todas las categorias <ion-icon name="chevron-down" style="
+             color: #474d5aa6;
+    position: absolute;
+    right: 10px;
+    font-size: 18px;
+    top: 10px;"></ion-icon>
+          </p> -->
+          <p></p>
+        </div>
+
+        <ion-refresher slot="fixed" (ionRefresh)="refresh($event)">
+          <ion-refresher-content></ion-refresher-content>
+        </ion-refresher>
+
+        <div style="position: fixed;bottom: 60px;width: 100%;text-align: center;z-index: 20;">
+          <a href="javascript:void(0)" class="btn btn-3" (click)="scan()"
+            style="position: relative;top: 15px;padding-top: 10px;">
+            <ion-icon name="scan" style="font-size: 20px;transform: translateY(5px);margin-right: 3px;"></ion-icon>
+            GET A POAP
+          </a>
+        </div>
+
+
+        <div class="row" style="padding: 0 35px;    padding-bottom: 200px;">
+
+          <div class="col-6" style="padding:  5px 4px;" *ngFor="let item of list; index as i;" (click)="detail(item)">
+
+            <div style="
+    background: #fdfdfd;
+    border-radius: 15px;
+    padding: 0 10px;
+    padding-bottom: 22px;
+    text-align: center;  " [ngClass]="item.role=='creator'?'isBuilder' :null">
+
+              <div style="position: relative;    padding-top: 20px;">
+                <img [src]="'https://ipfs.io/ipfs/'+item.ipfsicon" alt="" style="
+    max-height: 80%;
+    border: 0;
+    margin: auto;
+    margin-top: 15px;">
+
+
+                <div style="position: absolute;
+                top: 8px;
+                width: 100%;
+                text-align: center;">
+               <!--    <img
+                    [src]="'../../../assets/images/'+(item.chainid=='648529'?'logo-lacchain-footer.png':'binance-Logo.png')"
+                    alt="" style="
+                  width: 60px;"> -->
+   <img
+   [src]="'../../../assets/images/nodes/'+ (item.chainid)+'.png'"
+   alt="" style="max-height: 26px;">
+
+                </div>
+
+
+                <div style="    position: absolute;
+                top: 30px;
+                right: 0;" *ngIf="item.role=='creator'">
+                  <ion-badge class="builder"> {{item.role}}
+                  </ion-badge>
+                  <p class="text-badge" [ngClass]="item.status=='burned'?'burned':null">{{item.balance}} of
+                    {{item.amount}}</p>
+                </div>
+
+                <div  *ngIf="item.status=='burned'" style="position: absolute;
+                top: 23px;left:0;">
+                  <ion-icon name="flame-outline" style="font-size: 22px;color: rgb(221 122 51);"></ion-icon>
+                  <p class="text-badge" style="color:rgb(221 122 51)">Burned</p>
+                </div>
+
+              </div>
+              <div>
+                <p style="
+                margin: 0;
+                font-size: 10px;
+                color: rgb(140 140 140);
+                letter-spacing: 2px;
+                text-align: center;">{{item.name}}</p>
+                <p style="
+                margin: 0;
+                font-size: 13px;
+                color: rgb(72 72 72 / 80%);
+                letter-spacing: 1px;
+                text-align: center;
+                font-weight: 600;">{{item.description | maxText}}</p>
+                <p style="
+                margin: 0;
+                font-size: 10px;
+                color: rgb(140 140 140);
+                text-align: center;">{{(item.tx | slice:0:6)+' ...
+                                  '+(item.tx | slice:62:66)}}</p>
+              </div>
+
+
+            </div>
+
+
+          </div>
+
+          <!--  <div class="col-6" style="padding:  0 4px;">
+
+            <div style="
+                 background: #fdfdfd;
+    border-radius: 15px;
+    padding-bottom: 22px;
+    text-align: center;">
+              <img src="../../../assets/images/svg/1980971.svg" alt="" style="max-width: 80%;
+                    max-width: 80%;
+    max-height: 80%;
+    border: 0;
+    margin: auto;
+    margin-bottom: -15px;
+    margin-top: 15px;">
+              <p style="
+                    margin: 0;
+    font-size: 10px;
+    color: rgb(140 140 140);
+    letter-spacing: 2px;
+    text-align: center;">Axie infinite</p>
+              <p style="
+                margin: 0;
+    font-size: 13px;
+    color: rgb(72 72 72 / 80%);
+    letter-spacing: 1px;
+    text-align: center;
+    font-weight: 600;">Tally Gallery</p>
+              <p style="
+                margin: 0;
+    font-size: 10px;
+    color: rgb(140 140 140);
+    text-align: center;">#ffssasas5554</p>
+            </div>
+
+
+          </div> -->
+        </div>
+
+      </div>
+    </div>
+
+    <!--   <ion-segment (ionChange)="segmentChanged($event)" [value]="segSelect"
+        style=" border-top: 1px solid rgb(241, 241, 241);border-bottom: 1px solid rgb(241, 241, 241);margin-top: 15px;"
+        color="primary">
+        <ion-segment-button select value="cred">
+    
+          <ion-tab-button tab="tab1" class="tab-button">
+    
+            <ion-label class="text-seg" [ngClass]="segSelect=='cred'?'active' :'desabled'">
+              <ion-icon name="shield-checkmark-outline" style="font-size: 17px;transform: translateY(4px) ;"></ion-icon>
+              Credenciales
+            </ion-label>
+          </ion-tab-button>
+    
+        </ion-segment-button>
+    
+        <ion-segment-button value="pres">
+    
+          <ion-tab-button tab="tab3" class="tab-button">
+    
+            <ion-label class="text-seg" [ngClass]="segSelect=='pres'?'active' :'desabled'">
+              <ion-icon name="ribbon-outline" style="font-size: 17px;transform: translateY(4px);margin-right:3px ;">
+              </ion-icon>Presentación
+            </ion-label>
+    
+          </ion-tab-button>
+    
+        </ion-segment-button>
+    
+      </ion-segment>
+    
+      <ng-container *ngIf="segSelect=='cred'">
+        <div  *ngIf="emty_cred">
+          <img src="../../../assets/images/empty-cred.png" style="width: 100%;margin-top: 40px;">
+          <p style="text-align: center;
+          margin-bottom: 0;
+          padding: 0 35px;
+          line-height: 1.3;
+          font-size: 14px;
+          color: #8a8a8a;">No hay credenciales en su bandeja. Una vez que comience a recibirlos, aparecerán aqui.</p>
+          <p style="text-align: center;margin-top: 8px;"> <a href="javascript:void(0)" (click)="refresh()" style="color: var(--main-color) ;">Refrescar bandeja</a> </p>
+        </div>
+      
+        <div style="background: #f4f4f4;height:100%;padding-top: 5px;" *ngIf="!emty_cred">
+      
+          <div style="background: #fff;padding: 15px;margin: 12px;border-radius: 10px;padding-bottom: 40px;position: relative;">
+            <p style="color: #9f76cf;font-size: 12px;font-weight: 600;margin-top: 0;margin-bottom: 2px;">Ciudad de Lima, Perú
+            </p>
+            <p style="color: rgb(53, 53, 53);font-size: 16px;font-weight: 600;margin-top: 0;margin-bottom: 2px;">Prueba de
+              recidencia</p>
+            <p style="color: #8d8d8d;font-size: 12px;margin-top: 0;margin-bottom: 2px;">Acredita que el la persona recide en
+              el lugar por mas de un año, emitido por <b>La municipalidad de Lima</b> el 02 ENE 2021 </p>
+            <a href="javascript:void(0)" class="btn btn-2" (click)="goCert()" style="position: relative;top: 15px;">VER
+              CRED.</a>
+              <span style="position: absolute;right: 20px;bottom: 20px;font-size: 12px;font-style: italic;color: #8d8d8d;"> Vence el 14 SET 2021</span> 
+          </div>
+      
+          <div style="background: #fff;padding: 15px;margin: 12px;border-radius: 10px;padding-bottom: 40px;position: relative;">
+            <p style="color: #9f76cf;font-size: 12px;font-weight: 600;margin-top: 0;margin-bottom: 2px;">Primera dosis
+            </p>
+            <p style="color: rgb(53, 53, 53);font-size: 16px;font-weight: 600;margin-top: 0;margin-bottom: 2px;">Primera vacuna Pfizer
+            <p style="color: #8d8d8d;font-size: 12px;margin-top: 0;margin-bottom: 2px;">Acredita que el la persona recibio la
+              primera dosis de la vacuna Pfizer, emitido por <b>El ministerio de Salud</b> el 14 MAR 2021  </p>
+            <a href="javascript:void(0)" class="btn btn-2" (click)="goCert()" style="position: relative;top: 15px;">VER
+              CRED.</a>
+      
+            <span style="position: absolute;right: 20px;bottom: 20px;font-size: 12px;font-style: italic;color: #8d8d8d;"> Vence el 14 SET 2021</span>
+          </div>
+      
+        </div>
+      
+        <div style="position: fixed;bottom: 60px;width: 100%;text-align: center;">
+          <a href="javascript:void(0)" class="btn btn-3" (click)="scan()" style="position: relative;top: 15px;">
+            <ion-icon name="scan" style="font-size: 20px;transform: translateY(5px);margin-right: 3px;"></ion-icon> SCAN CODE</a>
+        </div>
+      </ng-container> -->
+
+  </div>
+
+
+
+
+
+
+
+
+</ion-content>

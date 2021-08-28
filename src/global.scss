@@ -1,0 +1,275 @@
+/*===== GOOGLE FONTS =====*/
+@import url("https://fonts.googleapis.com/css2?family=Poppins:wght@200;400;600;700&display=swap");
+
+/* Core CSS required for Ionic components to work properly */
+@import "~@ionic/angular/css/core.css";
+
+/* Basic CSS for apps built with Ionic */
+@import "~@ionic/angular/css/normalize.css";
+@import "~@ionic/angular/css/structure.css";
+@import "~@ionic/angular/css/typography.css";
+@import "~@ionic/angular/css/display.css";
+
+/* Optional CSS utils that can be commented out */
+@import "~@ionic/angular/css/padding.css";
+@import "~@ionic/angular/css/float-elements.css";
+@import "~@ionic/angular/css/text-alignment.css";
+@import "~@ionic/angular/css/text-transformation.css";
+@import "~@ionic/angular/css/flex-utils.css";
+
+* {
+  font-family: "Poppins", sans-serif !important;
+}
+
+.style-alert{
+  --width: 90%;
+  --max-width: 450px;
+  --height: 320px;
+  --border-radius: 5px;
+  --border: 1px solid #000;
+  --backdrop-opacity: 0.33;
+}
+
+.style-upload{
+  --width: 90%;
+  --max-width: 450px;
+  --height: 380px;
+  --border-radius: 5px;
+  --border: 1px solid #000;
+}
+
+.alert-validar {
+  .container {
+    text-align: center;
+  }
+
+  .imgIcon {
+    height: 70px;
+    margin: auto;
+  }
+  .alert-message {
+    max-height: 295px;
+  }
+
+  .alert-button-inner {
+    margin: auto;
+    color: #0d59a3;
+  }
+  .colorPregunta {
+    color: #0d59a3;
+  }
+}
+/* **************** NAVIGATE SLIDES ***************** */
+.slides-md,
+.slides-ios {
+  --bullet-background: var(--ion-color-step-200, #cccccc);
+  --bullet-background-active: var(--main-color);
+  --progress-bar-background: rgba(var(--ion-text-color-rgb, 0, 0, 0), 0.25);
+  --progress-bar-background-active: var(--main-color);
+  --scroll-bar-background: rgba(var(--ion-text-color-rgb, 0, 0, 0), 0.1);
+  --scroll-bar-background-active: rgba(var(--ion-text-color-rgb, 0, 0, 0), 0.5);
+}
+
+.swiper-container-horizontal > .swiper-pagination-bullets .swiper-pagination-bullet.swiper-pagination-bullet-active {
+  width: 25px;
+  border-radius: 4px;
+  transition: all 0.6s ease-in-out;
+}
+/* ********************************* */
+
+/* **************** MENU ***************** */
+.active-item {
+  ion-label {
+    color: #044483 !important;
+  }
+  --background: rgb(17, 77, 137);
+  --background: linear-gradient(86deg, rgba(17, 77, 137, 0.19373219373219375) 0%, rgba(255, 255, 255, 0) 100%);
+}
+
+.menu-content-open {
+  transition: 0.2s;
+}
+
+.ion-page {
+  transition: 0.12s;
+}
+
+.menu-content-open > .ion-page {
+  transform: scale(0.8);
+  transition: 0.1s; /* 
+    border-radius: 20px; */
+  box-shadow: 0 5px 30px rgba(0, 0, 0, 0.6);
+}
+
+.menu-content-push {
+  box-shadow: none !important;
+}
+/* ************************************* */
+
+
+/* **************** BOTONES ***************** */
+
+
+
+.btn-1 {
+  text-decoration: none;
+  background-color: #fff;
+  padding: 8px 15px;
+  border: none;
+  border-radius: 30px;
+  color: var(--main-color);
+  font-size: 12px;
+  box-shadow: var(--shadow-black-300);
+  font-weight: 600;
+}
+
+.btn-3 {
+  text-decoration: none;
+  background-color: #fff;
+  padding: 15px 70px;
+  border: none;
+  border-radius: 30px;
+  color: var(--main-color);
+  font-size: 12px;
+  box-shadow: var(--shadow-black-300);
+  font-weight: 600;
+}
+
+.btn-1:hover {
+  background-color: var(--main-color);
+  color: #fff;
+}
+
+
+.btn-2 {
+  text-decoration: none;
+  background-color: var(--main-color);
+  padding: 15px 70px;
+  border: none;
+  border-radius: 30px;
+  color: #ffffffdc;
+  font-size: 13px;
+  box-shadow: var(--shadow-black-300);
+  font-weight: 500;
+}
+
+.btn-2:hover {
+  background-color: #ffffffdc;
+  color: var(--main-color);
+}
+
+.cancel {
+  font-size: 13px;
+  color: var(--main-color);
+  cursor: pointer;
+  position: relative;
+  top: 50px;
+}
+
+/* NUEVOS */
+
+.active {
+  color: #9f76cf;
+}
+.desabled {
+  color: #aaaaaa;
+}
+
+
+.btn-2 {
+  text-decoration: none;
+  background: #fff;
+  padding:  15px 50px;
+  border: 1px solid #a785ce;
+  border-radius: 30px;
+  color:  #a785ce;
+  font-size: 11px;
+  box-shadow: var(--shadow-black-100);
+  font-weight: 600;
+}
+
+.btn-2:hover{
+  background: linear-gradient(90deg, #822bff 10%, #5c66ec  100%);
+  color:  #fff ;
+}
+
+.btn-3{
+  text-decoration: none;
+  background: linear-gradient(90deg, #822bff 10%, #5c66ec  100%);
+  padding: 15px 50px;
+  border-radius: 30px;
+  color:  #fff;
+  font-size: 11px;
+  box-shadow: var(--shadow-black-100);
+  font-weight: 500;
+}
+
+.btn-3:hover{
+  text-decoration: none;
+  background: linear-gradient(90deg, #822bff 10%, #5c66ec  100%);
+  padding: 15px 50px;
+  border-radius: 30px;
+  color:  #fff;
+  font-size: 11px;
+  box-shadow: var(--shadow-black-100);
+  font-weight: 500;
+}
+
+
+/* ************************ */
+
+
+.style-alert-input {
+  --width: 400px;
+  --max-width: 90%;
+  --height: 410px;
+  --border-radius: 5px;
+  --border-style: solid;
+  --border-color: rgb(165, 165, 165);
+  --border-width: 1px;
+  --backdrop-opacity: 0.33;
+}
+
+ion-content{
+  --background: #fff;
+}
+
+.icon-nav {
+  color: #F7F8FB;
+  font-size: 21px;
+  padding: 15px 20px;
+}
+
+.title {
+  text-align: center;
+  color: #F7F8FB;
+  transition: 0.3s linear all;
+}
+
+
+.row_container {
+  display: flex;
+}
+
+
+/* ************************************* */
+
+
+
+/* ANIMACIONES */
+@keyframes pulse_02 {
+  0% {
+    transform: scale(0.94);
+    box-shadow: 0 0 0 0 var(--main-color);
+  }
+
+  70% {
+    transform: scale(1);
+    box-shadow: 0 0 0 12px rgba(255, 255, 255, 0);
+  }
+
+  100% {
+    transform: scale(0.94);
+    box-shadow: 0 0 0 0 rgba(255, 255, 255, 0);
+  }
+}

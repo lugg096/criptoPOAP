@@ -1,0 +1,312 @@
+<ion-content [fullscreen]="true" style=" --background: #FEFBFB;">
+
+  <!-- TIPO DE CREACION -->
+  <ion-slides #slidesPadre pager="false" [options]="slideOptsOnboarding" style="height: 100%;">
+
+    <!-- Presentacion -->
+    <ion-slide class="ion-no-padding">
+      <div style=" padding-bottom: 5px;  height: 100%; color: #2F3435;">
+
+
+
+        <div style="text-align: center;margin-top: 10%;">
+          <img src="../../../assets/images/onboard01.png">
+        </div>
+
+        <p style="text-align: center; font-size: 23px;font-weight: 600; margin-bottom: 10px;">CriptoPOAP
+        </p>
+
+        <p style="text-align: center;font-size: 12px; margin: 0 40px;color: #8a8a8a;">
+          Get a POAP (NFT) and put it in your wallet</p>
+
+        <div style="text-align: center">
+
+          <a href="javascript:void(0)" class=" btn-3" (click)="nextSlidePadre()"
+            style="position: relative;top: 30px;letter-spacing: 1.5px;">
+            Create account</a>
+          <br>
+          <br>
+          <a href="javascript:void(0)" class=" btn-2" (click)="goImport()"
+            style="position: relative;top: 30px;letter-spacing: 1.5px;    padding: 15px 47px;">
+            Import account</a>
+
+          <!--     <ion-button expand="block" (click)="nextSlidePadre()" class="button-01">
+              Crear cuenta
+            </ion-button> -->
+
+          <!--  <ion-button expand="block" class="button-02" (click)="goImport()">
+            Importar cuenta
+          </ion-button> -->
+        </div>
+
+      </div>
+    </ion-slide>
+
+    <!-- Crear Wallet Opnciones -->
+    <ion-slide class="ion-no-padding">
+      <div style=" padding-bottom: 5px;  height: 100%; color: #2F3435;margin-top: 60px;">
+        <p style="text-align: center; font-size: 23px;font-weight: 600; margin-bottom: 10px;">Create account
+        </p>
+        <p style="text-align: center;font-size: 12px; margin: 0 40px;color: #8a8a8a;">
+          Choose one of the security options you want to use to create your private key.
+        </p>
+
+
+        <ion-card button="true" (click)="fotoSeguridad=false;fraseSeguridad=true;nextSlidePadre()"
+          style="--background: white;border-radius: 20px;margin-top: 30px ;padding: 15px 5px 15px 20px;box-shadow: var(--shadow-black-100);">
+          <div style="box-sizing: border-box;">
+
+            <div style=" width: 30%;float: left;text-align: center;margin-top: 1%;transform: translateX(-5px) ">
+              <a class=" btn-main" style="box-shadow: var(--shadow-black-100)">
+
+                <ion-icon name="document-lock-outline"
+                  style="color: var(--main-color);font-size: 25px;transform: translateY(13px)"></ion-icon>
+              </a>
+            </div>
+
+
+
+            <div style=" width: 70%;float: left; text-align: left;">
+              <p style="font-weight: 600;font-size: 15px;margin: 7px auto;margin-bottom: 5px;">Seeds</p>
+              <p style="font-size: 11px; color: #a1a1a1; font-weight: 600;margin: 0;">See 12 seeds to creat your private
+                key</p>
+            </div>
+          </div>
+        </ion-card>
+
+
+        <ion-card button="true" (click)="fraseSeguridad=false;fotoSeguridad=true;nextSlidePadre()"
+          style="--background: white;border-radius: 20px;margin-top: 20px ;padding: 15px 5px 15px 20px;box-shadow: var(--shadow-black-100);">
+          <div style="box-sizing: border-box;">
+
+            <div style=" width: 30%;float: left;text-align: center;margin-top: 1%;transform: translateX(-5px) ">
+              <a class=" btn-main" style="box-shadow: var(--shadow-black-100)">
+
+                <ion-icon name="camera-outline"
+                  style="color: var(--main-color);font-size: 25px;transform: translateY(13px)"></ion-icon>
+              </a>
+            </div>
+
+
+
+            <div style=" width: 70%;float: left; text-align: left;">
+              <p style="font-weight: 600;font-size: 15px;margin: 7px auto;margin-bottom: 5px;">Real time photo</p>
+              <p style="font-size: 11px; color: #a1a1a1; font-weight: 600;margin: 0;">A photo will be taken to generate
+                your private key</p>
+            </div>
+          </div>
+        </ion-card>
+
+
+
+
+        <div style="text-align: center">
+
+          <a href="javascript:void(0)" class=" btn-3" (click)="backSlidePadre()"
+            style="position: relative;top: 30px;letter-spacing: 1.5px;">
+            to return</a>
+        </div>
+
+      </div>
+    </ion-slide>
+
+    <!-- Frase de Recuperacion  -->
+    <ion-slide class="ion-no-padding" *ngIf="fraseSeguridad">
+      <div style=" padding-bottom: 5px;  height: 100%; color: #2F3435;margin-top: 60px;">
+
+        <p style="text-align: center; font-size: 23px;font-weight: 600; margin-bottom: 10px;">Seeds
+        </p>
+        <p style="text-align: center;font-size: 12px; margin: 0 40px;color: #8a8a8a;">
+          Write these seed words, in the correct order and keep them in a safe place.
+        </p>
+
+        <div style="margin-top: 10px; line-height: 2;display:block;padding: 20px;">
+          <div
+            style="padding: 1px 8px; border-radius: 8px; border: 1px solid #75757546; margin: 5px;font-size: 12px;display: inline-block;"
+            *ngFor="let item of palabrasPrincipal; let i=index"><span style="color: #757575bd;"> {{i+1}}</span> {{item}}
+          </div>
+
+        </div>
+        <div style="display:block;text-align:center;">
+          <a class=" btn-main animate-pulse" style="background-color: #fff;" (click)="copyText()">
+            <ion-icon name="documents-outline"
+              style="color:  var(--main-color);font-size: 25px;transform: translateY(15px)">
+            </ion-icon>
+            <p style="color: var(--main-color);font-size: 11px;margin-top: 35px;text-align: center;font-weight: 600;">
+              Copy</p>
+          </a>
+
+          <a class=" btn-main animate-pulse" style="background-color: #fff;" (click)="generarQR()">
+            <ion-icon name="qr-code-outline"
+              style="color:  var(--main-color);font-size: 25px;transform: translateY(15px)">
+            </ion-icon>
+            <p style="color: var(--main-color);font-size: 11px;margin-top: 35px;text-align: center;font-weight: 600;">
+              Code</p>
+          </a>
+        </div>
+
+        <div
+          style="position: relative;top: 2%;width: 90%;border-radius: 8px;color:tomato;background:#799cce1f;color: var(--main-color);margin: auto;padding: 10px 20px;">
+          <ion-icon name="information-circle" style="font-size: 25px;"></ion-icon>
+          <p style="font-size: 13px;margin-top: 0;">Do not share the seed words with anyone, because they may lose their
+            training. Store it safely!</p>
+        </div>
+
+        <div style="text-align: center">
+          <ion-button expand="block" (click)="palabrasClave()" class="button-01">
+            Continue
+          </ion-button>
+
+          <a href="javascript:void(0)" class="cancel" (click)="backSlidePadre();">To return</a>
+        </div>
+
+
+      </div>
+    </ion-slide>
+
+    <!-- Verificar Frase de Recuperacion  -->
+    <ion-slide class="ion-no-padding" *ngIf="fraseSeguridad">
+      <div style=" padding-bottom: 5px;  height: 100%; color: #2F3435;margin-top: 60px;">
+
+        <p style="text-align: center; font-size: 23px;font-weight: 600; margin-bottom: 10px;">Order the seed words
+        </p>
+        <p style="text-align: center;font-size: 12px; margin: 0 40px;color: #8a8a8a;">
+          Press the words to put them next to each other in the correct order
+        </p>
+
+        <div style=" line-height: 2;display:block;width: 100%;background:#799cce1f; margin-top: 20px;padding: 15px ;">
+          <ng-container *ngFor="let item of palabrasVerif; let i=index">
+            <div (click)="quitarPalabra(i)"
+              style="background: #fff ;padding: 1px 8px; border-radius: 8px; border: 1px solid #75757546; margin: 5px;font-size: 12px;display: inline-block;">
+              <span style="color: #757575bd;"> {{i+1}}</span> {{item}}
+            </div>
+          </ng-container>
+          <p *ngIf="!claveValida" style="font-size: 12px;margin-top: 0;color: #e0533a;">
+            <ion-icon name="information-circle" style="font-size: 19px;transform: translateY(5px);"></ion-icon>
+            Select the words in the correct order
+          </p>
+          <p *ngIf="palabrasPrincipal == palabrasVerif"
+            style="font-size: 13px;margin-top: 0;color: #2aac09cb;font-weight: 600;">
+            <ion-icon name="checkmark-circle" style="font-size: 20px;transform: translateY(6px);"></ion-icon> Correct
+            seeds word
+          </p>
+        </div>
+
+
+        <div style=" line-height: 2;display:block;padding: 20px;">
+          <div (click)="selectPalabra(i)"
+            style="padding: 1px 8px; border-radius: 8px; border: 1px solid #75757546; margin: 5px;font-size: 12px;display: inline-block;"
+            *ngFor="let item of palabras; let i=index"> {{item}} </div>
+        </div>
+
+
+        <div style="text-align: center">
+
+
+          <ion-button expand="block" (click)="verificarFrase()" class="button-01"
+            [disabled]="!claveValida || palabrasVerif.length!=12">
+            Continue
+          </ion-button>
+          <a href="javascript:void(0)" class="cancel" (click)="backSlidePadre()">To return</a>
+        </div>
+
+      </div>
+    </ion-slide>
+
+    <!-- Tomar foto  -->
+    <ion-slide class="ion-no-padding" *ngIf="fotoSeguridad">
+      <div style=" padding-bottom: 5px;  height: 100%; color: #2F3435;margin-top: 60px;">
+
+        <div style="font-size: 25px;color:var(--main-color);position: absolute;width: 100%;">
+          <p style="text-align: center;"> Step 1 </p>
+        </div>
+        <div style="text-align: center;margin-top: 10%;">
+          <img src="../../../assets/images/onboard-foto.png">
+        </div>
+
+
+        <p style="text-align: center; font-size: 23px;font-weight: 600; margin-bottom: 10px;">Capture photo
+        </p>
+
+        <p style="text-align: center;font-size: 12px; margin: 0 40px;color: #8a8a8a;">
+          We will use the photo you take to generate the private key
+        </p>
+
+        <div style="text-align: center">
+
+          <a href="javascript:void(0)" class=" btn-3" (click)="procesarImagen()"
+            style="position: relative;top: 30px;letter-spacing: 1.5px;">
+            <ion-icon name="camera" style="font-size: 20px;transform: translateY(5px);"></ion-icon> Capture now
+          </a>
+          <!--   <ion-button expand="block" (click)="procesarImagen()" class="button-01">
+            <ion-icon name="camera" style="font-size: 17px;margin-right: 5px;transform: translateY(-1px);"></ion-icon>
+            Capturar foto
+          </ion-button> -->
+          <!-- 
+          <div>
+            <label for="">SUBIR FOTO</label>
+            <input type="file" (change)="fileChangeEvent($event)" class="fileInputProfile">
+          </div> -->
+          <br>
+
+          <a href="javascript:void(0)" class="cancel" (click)="backSlidePadre();">To return</a>
+        </div>
+
+
+      </div>
+    </ion-slide>
+
+    <!-- Descargar foto  -->
+    <ion-slide class="ion-no-padding" *ngIf="fotoSeguridad" style="overflow-y: scroll;display: block;">
+      <div style=" padding-bottom: 5px;  height: 100%; color: #2F3435;margin-top: 60px;">
+
+        <div style="text-align: center;width: 65%;margin: auto;margin-top: 15%; ">
+          <img [src]="imagen">
+        </div>
+
+
+        <p style="text-align: center; font-size: 23px;font-weight: 600; margin-bottom: 10px;">Save photo
+        </p>
+
+        <p style="text-align: center;font-size: 12px; margin: 0 40px;color: #8a8a8a;">
+          Your photo will be saved in the following location: <br> <span style="color: #2F3435;">
+            Documents/seguridad/[imagen]</span> <br>
+          For your safety we recommend moving the photo to a safer place (use email to move the photo), any changes to
+          the photo will not allow you to recover your account if you change devices. A PIN (6-digit code) needs to be
+          registered to protect the photo.
+        </p>
+
+        <div style="text-align: center">
+          <a href="javascript:void(0)" class=" btn-3" (click)="downloadPhoto()"
+            style="position: relative;top: 30px;letter-spacing: 1.5px;">
+            Save photo and register PIN</a>
+          <br>
+          <!-- <ion-button expand="block" (click)="downloadPhoto()" class="button-01">
+            Guardar foto y registrar PIN
+          </ion-button> -->
+          <a href="javascript:void(0)" class="cancel" (click)="backSlidePadre();">To return</a>
+        </div>
+
+
+      </div>
+    </ion-slide>
+
+    <!-- Crear PIN -->
+    <ion-slide>
+      <div class=" text-left" style="background: var(--bfirma-primary);width: 100%;height: 100%;">
+        <app-pin [data]="dataSlideCreate" (backPage)="backSlidePadre()" (getClave)="getClave($event)"></app-pin>
+      </div>
+    </ion-slide>
+
+    <!-- Validar PIN -->
+    <ion-slide>
+      <div class=" text-left" style="background: var(--bfirma-primary);width: 100%;height: 100%;">
+        <app-pin [data]="dataSlideValidacion" (backPage)="backSlidePadre()"
+          (getClave)="fraseSeguridad?getClaveValid($event):getClaveValidPhoto($event)">
+        </app-pin>
+      </div>
+    </ion-slide>
+
+
+  </ion-slides>
+</ion-content>

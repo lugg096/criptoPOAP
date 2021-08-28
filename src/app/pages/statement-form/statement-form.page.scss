@@ -1,0 +1,62 @@
+
+.btn-2 {
+    text-decoration: none;
+    background: #fff;
+    padding: 10px 26px;
+    border: 1px solid #a785ce;
+    border-radius: 30px;
+    color:  #a785ce;
+    font-size: 11px;
+    box-shadow: var(--shadow-black-100);
+    font-weight: 600;
+  }
+  
+  .btn-2:hover{
+    background: linear-gradient(90deg, #822bff 10%, #5c66ec  100%);;
+    color:  #fff ;
+  }
+  
+  .btn-3{
+    text-decoration: none;
+    background: linear-gradient(90deg, #822bff 10%, #5c66ec  100%);
+    padding: 15px 50px;
+    border-radius: 30px;
+    color:  #fff;
+    font-size: 11px;
+    box-shadow: var(--shadow-black-100);
+    font-weight: 500;
+  }
+  
+  .cardKey{
+  
+    --background: white;border-radius: 8px;margin-top: 10px ;padding: 15px 15px 15px 20px;box-shadow: var(--shadow-black-100);
+  }
+  
+  .select-card {
+    --background: linear-gradient(90deg, #822bff 10%, #5c66ec 100%) !important;
+    color: white;
+    p{
+      color: white ;
+      ion-icon {
+        color: white !important ;  
+      }
+    }
+  
+  }
+  
+  .select-card p:nth-child(1){
+    font-weight: 500 !important;
+      }
+  
+      
+  .select-card p:nth-child(2){
+    font-weight: 300 !important;
+      }
+  
+      
+  .select-card p:nth-child(3){
+    color : white !important;
+      }
+
+
+  

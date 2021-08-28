@@ -1,0 +1,60 @@
+.svg {
+    /*     padding-top: 40%; */
+    margin: auto;
+    width:90px;
+    margin: 20px auto;
+    margin-top: 40px;
+}
+
+
+
+.btn-2 {
+    text-decoration: none;
+    background: #fff;
+    padding: 10px 26px;
+    border: 1px solid #a785ce;
+    border-radius: 30px;
+    color:  #a785ce;
+    font-size: 11px;
+    box-shadow: var(--shadow-black-100);
+    font-weight: 600;
+  }
+  
+  .btn-2:hover{
+    background: linear-gradient(90deg, #822bff 10%, #5c66ec  100%);;
+    color:  #fff ;
+  }
+  
+  .btn-3{
+    text-decoration: none;
+    background: linear-gradient(90deg, #822bff 10%, #5c66ec  100%);
+    padding: 10px 26px;
+    border-radius: 30px;
+    color:  #fff;
+    font-size: 11px;
+    box-shadow: var(--shadow-black-100);
+    font-weight: 500;
+  }
+
+
+  
+.input-icon {
+  position: absolute;
+  right: 10px;
+  bottom: 5px;
+  z-index: 10;
+  background: #fff;
+  border-radius: 100%;
+
+  ion-icon {
+    font-size: 25px;
+    color: var(--main-color);
+    transform: translateY(2px);
+  }
+}
+
+
+.animate-pulse2 {
+  animation: pulse_02 2s ease infinite;
+}
+
