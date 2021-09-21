@@ -145,7 +145,7 @@
             transition: clip-path .04s linear .105s;
           }
           .cloud {
-            top: -30px;
+            top: -100px;
             left: -30px;
             transform: translate(0, 0);
             transition: all .6s ease;
@@ -178,6 +178,7 @@
         background: #822bff;
         z-index: -1;
         transition: width .6s ease;
+        border-radius: 100%;
       }
       &:after {
         content:"";

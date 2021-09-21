@@ -1,0 +1,14 @@
+{
+  "appId": "com.app.criptopoap",
+  "appName": "CriptoPOAP",
+  "bundledWebRuntime": false,
+  "npmClient": "npm",
+  "webDir": "www",
+  "version": "2",
+  "plugins": {
+    "SplashScreen": {
+      "launchShowDuration": 0
+    }
+  },
+  "cordova": {}
+}
